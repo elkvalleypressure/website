@@ -1,0 +1,875 @@
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/barlow-condensed-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/barlow-condensed-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-600.woff2") format("woff2");
+}
+
+:root {
+  --black: #111111;
+  --ink: #161616;
+  --green: #2f4a3a;
+  --green-ink: #24382c;
+  --paper: #f6f5f2;
+  --white: #ffffff;
+  --muted: #3c3c3c;
+  --line: #d9d6cf;
+  --header-h: 6.75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  padding-bottom: 4.4rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  transform: translateY(-160%);
+  background: var(--white);
+  color: var(--black);
+  padding: 0.55rem 0.8rem;
+  z-index: 50;
+  font-weight: 600;
+}
+
+.skip:focus {
+  transform: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--black);
+  color: var(--white);
+  border-bottom: 3px solid var(--green);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.85rem 0.2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--white);
+}
+
+.brand img {
+  width: 42px;
+  height: 42px;
+}
+
+.brand strong {
+  display: block;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+
+.brand small {
+  display: block;
+  margin-top: 0.12rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #d7e2da;
+  font-size: 0.72rem;
+}
+
+.call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.4rem 0.8rem;
+  background: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 1.12rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  box-shadow: inset 0 -3px 0 var(--green);
+}
+
+.call:hover,
+.call:focus-visible {
+  background: #f3f1ea;
+  color: var(--black);
+}
+
+.site-nav {
+  display: flex;
+  gap: 0.1rem;
+  overflow-x: auto;
+  padding: 0.15rem 0.5rem 0.4rem;
+  scrollbar-width: none;
+}
+
+.site-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.site-nav a {
+  color: #f3f1ea;
+  text-decoration: none;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+  white-space: nowrap;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: white;
+  border-bottom-color: var(--green);
+}
+
+.home-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 32% 62%;
+  background: #2a2a2a;
+}
+
+.card {
+  display: grid;
+  background: var(--black);
+}
+
+.card-dark,
+.card-light {
+  padding: 1.4rem 1.15rem 1.5rem;
+}
+
+.card-dark {
+  color: var(--white);
+  text-align: center;
+}
+
+.antler {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 0.4rem;
+}
+
+.wordmark {
+  margin: 0;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 10vw, 3.1rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+
+.owned {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.85rem auto 0;
+  max-width: 22rem;
+  color: var(--white);
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+.owned::before,
+.owned::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--green);
+}
+
+.card-light {
+  background: var(--white);
+  color: var(--black);
+  clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%);
+  margin-top: -1px;
+  padding-top: 2.3rem;
+}
+
+.card-light h1 {
+  margin: 0;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 11vw, 3.6rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+
+.hours {
+  margin: 0.2rem 0 0.85rem;
+  color: var(--green);
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.role {
+  margin: 0.35rem 0 0.15rem;
+  color: var(--green);
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+.card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.card-list a {
+  color: var(--black);
+  font-weight: 600;
+}
+
+.card-list li {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr;
+  gap: 0.55rem;
+  align-items: start;
+}
+
+.icon {
+  width: 1.45rem;
+  height: 1.45rem;
+  color: var(--green);
+  margin-top: 0.1rem;
+}
+
+.slogan {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: clamp(0.95rem, 3.6vw, 1.25rem);
+  padding: 0.85rem 0.8rem;
+}
+
+.wrap {
+  width: min(1100px, calc(100% - 1.7rem));
+  margin: 0 auto;
+}
+
+section {
+  scroll-margin-top: var(--header-h);
+  padding: 2.5rem 0;
+}
+
+.section-label {
+  margin: 0 0 0.3rem;
+  color: var(--green);
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.15rem, 8vw, 3.2rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 0.92;
+}
+
+.prose p {
+  margin: 0 0 0.85rem;
+}
+
+.portrait,
+.truck-photo {
+  margin: 0 0 1rem;
+}
+
+.portrait img,
+.truck-photo img {
+  width: 100%;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.portrait img {
+  aspect-ratio: 16 / 9;
+  object-position: 68% 42%;
+}
+
+.truck-photo img {
+  aspect-ratio: 4 / 3;
+  object-position: 78% 72%;
+}
+
+figcaption {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.specs {
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.specs li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stats li {
+  margin: 0;
+  padding-top: 0.35rem;
+  border-top: 3px solid var(--green);
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+.note {
+  margin: 1rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--green);
+  color: var(--green-ink);
+  font-weight: 600;
+}
+
+.services {
+  background: var(--white);
+}
+
+.service-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.service-list li {
+  display: grid;
+  grid-template-columns: 3.1rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.95rem 0.15rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.service-list h3 {
+  margin: 0 0 0.15rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.service-list p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.service-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  color: var(--green);
+}
+
+.area-grid,
+.contact-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.panel {
+  background: var(--black);
+  color: var(--white);
+  padding: 1.15rem 1.1rem 1.25rem;
+}
+
+.panel .section-label {
+  color: #c9ddd2;
+}
+
+.panel strong {
+  display: block;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 2.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.panel p {
+  margin: 0.55rem 0 0;
+  color: #eeeae3;
+}
+
+.panel .hours {
+  margin: 0.45rem 0 0;
+  color: #d7e2da;
+}
+
+.anytime {
+  margin: 0 0 0.85rem;
+  color: var(--green-ink);
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.45rem, 4.2vw, 2.05rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.checklist {
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.65rem 0.9rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.btn-call {
+  background: var(--black);
+  color: var(--white);
+  box-shadow: inset 0 -4px 0 var(--green);
+}
+
+.btn-call:hover,
+.btn-call:focus-visible {
+  background: #222;
+  color: var(--white);
+}
+
+.btn-mail,
+.btn-text {
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid var(--black);
+}
+
+.btn-mail:hover,
+.btn-mail:focus-visible,
+.btn-text:hover,
+.btn-text:focus-visible {
+  border-color: var(--green);
+  color: var(--green-ink);
+}
+
+.panel .actions {
+  flex-direction: column;
+}
+
+.panel .actions a {
+  flex: none;
+}
+
+.reach-note {
+  grid-column: 1 / -1;
+  margin: 0.35rem 0 0;
+  max-width: 42rem;
+  color: var(--muted);
+}
+
+.address {
+  margin: 0.8rem 0 0;
+}
+
+.address a {
+  color: var(--green-ink);
+  font-weight: 600;
+}
+
+.logo-feature {
+  background: var(--black);
+  padding: 1.75rem 1rem 0.4rem;
+}
+
+.logo-feature img {
+  width: min(100%, 420px);
+  margin: 0 auto;
+}
+
+.site-footer {
+  background: var(--black);
+  color: #f3f1ea;
+  padding: 1.4rem 0 1.6rem;
+}
+
+.site-footer p {
+  margin: 0.2rem 0;
+}
+
+.site-footer a {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.legal {
+  margin-top: 0.75rem;
+  color: #bdbdbd;
+  font-size: 0.92rem;
+}
+
+.dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  background: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 1.28rem;
+  border-top: 3px solid var(--green);
+  box-shadow: 0 -8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.dock:hover,
+.dock:focus-visible {
+  background: #f3f1ea;
+  color: var(--black);
+}
+
+@media (min-width: 860px) {
+  :root {
+    --header-h: 4.7rem;
+  }
+
+  body {
+    padding-bottom: 0;
+    font-size: 1.125rem;
+  }
+
+  .site-header .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(1100px, calc(100% - 2rem));
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .bar {
+    padding: 0.35rem 0;
+  }
+
+  .site-nav {
+    padding: 0;
+    overflow: visible;
+  }
+
+  .home {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    align-items: stretch;
+    background: var(--black);
+  }
+
+  .home-photo {
+    height: 100%;
+    min-height: 560px;
+    aspect-ratio: auto;
+    object-position: 28% 64%;
+  }
+
+  .card {
+    position: relative;
+    min-height: 560px;
+    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-rows: auto;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .card-dark {
+    background: #111111;
+    clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
+    padding: 2.2rem 3.2rem 1.4rem 1.6rem;
+    text-align: left;
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    top: -12%;
+    left: 41%;
+    width: 14px;
+    height: 140%;
+    background: #2f4a3a;
+    transform: rotate(12deg);
+    transform-origin: center;
+    pointer-events: none;
+  }
+
+  .card-light {
+    background: #ffffff;
+  }
+
+  .antler {
+    margin: 0 0 0.6rem;
+  }
+
+  .wordmark {
+    max-width: 8ch;
+  }
+
+  .owned {
+    margin: 1rem 0 0;
+    max-width: 16rem;
+  }
+
+  .card-light {
+    clip-path: none;
+    margin: 0;
+    padding: 2.2rem 1.35rem 1.5rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card-light h1 {
+    font-size: clamp(2.15rem, 2.8vw, 3rem);
+  }
+
+  .card-list {
+    font-size: 1rem;
+  }
+
+  .card-list a {
+    overflow-wrap: normal;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .split.reverse {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+
+  .portrait,
+  .truck-photo {
+    margin: 0;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+  }
+
+  .service-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .service-list li {
+    padding: 1rem 1rem 1.05rem;
+    border-right: 1px solid var(--line);
+  }
+
+  .service-list li:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .service-list li:nth-last-child(-n + 3) {
+    border-bottom: 0;
+  }
+
+  .area-grid,
+  .contact-grid {
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+  }
+
+  .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .actions a {
+    flex: 1 1 14rem;
+  }
+
+  .dock {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  .site-header,
+  .dock,
+  .call,
+  .actions {
+    display: none;
+  }
+
+  body {
+    padding: 0;
+    background: white;
+  }
+}
