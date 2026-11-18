@@ -622,6 +622,38 @@ figcaption {
   color: var(--green-ink);
 }
 
+.btn-facebook {
+  gap: 0.55rem;
+  background: var(--white);
+  color: var(--green-ink);
+  border: 2px solid var(--green);
+}
+
+.btn-facebook:hover,
+.btn-facebook:focus-visible {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+
+.icon-fb {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+}
+
+.site-footer .footer-facebook {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+}
+
+.site-footer .footer-facebook .icon-fb {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
 .panel .actions {
   flex-direction: column;
 }
